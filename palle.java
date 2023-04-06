@@ -47,9 +47,7 @@ public class palle {
                     return Float.compare(r1, r2);
                 }
             });
-            if (productList.size() > 10) {
-            } else {
-            }
+            List<Product> top10Products = productList.subList(productList.size()-10,productList.size());
 
             /*
              * Creating a file name : product_details.csv
@@ -58,7 +56,7 @@ public class palle {
              */
 
             FileWriter writer = new FileWriter("product_details.csv");
-            writer.append("Name,Rating,Price\n");
+            writer.append("Name,Rating,Price,Code,model,cat,description\n");
             for (Product product : productList) {
                 writer.append(product.getName() + ",");
                 writer.append(product.getRating() + ",");
